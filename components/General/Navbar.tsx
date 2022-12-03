@@ -1,19 +1,43 @@
 import Link from "next/link";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
+  
+
   const menuOpen = () => {
     const navbar = document.querySelector("#navbar-mobile");
     navbar?.classList.toggle("hidden");
   };
 
+  const [scrollTop, setScrollTop] = useState(0);
+
+  useEffect(() => {
+    function onScroll() {
+      let currentPosition = window.pageYOffset;
+      if (currentPosition > scrollTop) {
+        // downscroll code
+        console.log('down')
+      } else {
+        // upscroll code
+        console.log('up')
+      }
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+    }
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
+
   return (
     <>
-      <nav className="flex w-screen items-center bg-white py-4 px-4 fixed z-50">
+      <nav className="flex w-screen items-center bg-white py-4 px-4 fixed z-50 top-0">
         <div className="flex w-2/4">
           <h1 className="font-bold text-2xl text-black cursor-default">
-            Portfolio
+            Portfolio {scrollTop}
           </h1>
+        </div>
+        <div className="">
         </div>
         <div className="flex justify-center w-2/4 text-lg max-sm:hidden">
           <Link className="flex px-6 text-black" href={"/"}>

@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="Author" content="Haris-Maulana" />
         <title>Haris Portfolio</title>  
       </Head>
-      <div className='min-h-screen'>
+      <div className='min-h-screen' id="body">
         <Navbar/>
         <Hero/>
         <Footer/>
