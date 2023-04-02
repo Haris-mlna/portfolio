@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  max-width: 1440px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.heroTitle {
+  font-family: var(--font-raleway);
+  color: white;
+  font-size: 2.25rem;
+  font-weight: 300;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.heroTitleAccent {
+  color: gold;
+  cursor: pointer;
+
+  animation: heroTitle 2000ms ease-in-out infinite;
+}
+
+@keyframes heroTitle {
+  0%,
+  100% {
+    color: gold;
+  }
+  50% {
+    color: white;
+  }
+}
+
+/* Media queries for header */
+@media screen and (max-width: 768px) {
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.25rem;
+  }
+}
+
+/*===============================
+ ABOUT ME SECTION
+================================*/
+
+.sectionContainer {
+  display: flex;
+  margin: 10vh 0;
+}
+
+.containerAboutMe {
+  width: 100%;
+  min-height: 150vh;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.containerImage {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.aboutMeAvatar {
+  --avatar-size: 300px;
+  position: relative;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.imageFrame {
+  --avatar-size: 300px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  position: relative; /* Added to allow absolute positioning of ::before */
+}
+
+.imageFrame::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(var(--avatar-size) + 20px);
+  height: calc(var(--avatar-size) + 20px);
+  border-radius: 50%;
+  animation: circle-around 2000ms ease-in-out infinite;
+  animation-delay: 1s;
+  z-index: -1;
+}
+
+@keyframes circle-around {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(360deg);
+    box-shadow: 0 0px 4px 1px rgb(0, 0, 255), 0 0px 4px 1px rgb(251, 255, 0)
+  }
+}
+
+.aboutMe {
+  width: 50%;
+}
+
+.aboutMeTitle {
+  font-family: var(--font-raleway);
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.aboutMepara {
+  text-align: justify;
+  font-size: 1.125rem;
+}
+
+.aboutMeList {
+  list-style: none;
+}
+
+.aboutMeList li:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("/assets/icons/arrow-right.png");
+  background-size: contain;
+  transform: scale(0.8); /* adjust the scaling factor as needed */
+  margin-right: 5px;
+}
+
+.aboutMeList li {
+  margin: 10px 0;
+}
