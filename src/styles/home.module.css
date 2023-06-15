@@ -1,0 +1,49 @@
+/* home.module.css */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+}
+
+.heroIntro{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 52px;
+  font-family: var(--font-caviardreams);
+}
+
+@media (max-width: 900px) {
+  .heroIntro {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroIntro {
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+}
+
+.profile {
+  width: 100%;
+  height: 100vh;
+}
+
+.profileTitle {
+  font-size: 32px;
+  font-family: var(--font-caviardreams);
+  text-align: end;
+  padding: 10px;
+  padding-right: 40px;
+  background-color: var(--color-background-accent);
+}
+
+.svgProfileContainer {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}

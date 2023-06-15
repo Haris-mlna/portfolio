@@ -1,0 +1,59 @@
+.toggleMode {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: gray;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  transition: 100ms ease-in-out;
+  box-shadow: 0 0 4px 1px;
+}
+
+.toggleMode:hover {
+  color: var(--toggle-color);
+}
+
+.contactContainer {
+  position: fixed;
+  left: 20px;
+	bottom: 20px;
+	display: flex;
+  transition: 300ms ease-in-out;
+}
+
+.contact {
+  background-color: var(--text-color);
+	color: var(--color-background);
+  width: 35px;
+  height: 35px;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 8px;
+	border-radius: 50%;
+	font-size: 50px;
+	cursor: pointer;
+	transition: 100ms ease-in-out;
+	box-shadow: 0 0 4px 1px;
+}
+
+.contactInstagram:hover {
+	color: #e0488c;
+}
+
+.contactTwitter:hover {
+	color: #00c7ff;
+}
+
+.contactGithub:hover {
+	color: white;
+}
