@@ -1,0 +1,36 @@
+.loadingPages {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    transition: 300ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 2px solid white;
+    transform: rotate(45deg);
+    border-radius: 4px;
+    box-shadow: 0 0 4px 2px white;
+    animation: spinning 10s linear;
+}
+
+@keyframes spinning {
+    0% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(225deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+.layer {
+    position: absolute;
+}

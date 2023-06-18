@@ -1,149 +1,166 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import styles from "../styles/home.module.css";
+import button from "../styles/button.module.css";
 import Head from "next/head";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import Image from "next/image";
+import Navbar from "@/components/Navbar/navbar";
 
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import {
   AiFillInstagram,
   AiOutlineTwitter,
+  AiFillLinkedin,
   AiFillGithub,
 } from "react-icons/ai";
-import { Carousel } from "antd";
 
-import { HeroSVG } from "@/assets/image/heroSVG";
+import {IoOpenOutline} from 'react-icons/io5'
 
-import styles from "../styles/home.module.css";
-import buttonStyles from "../styles/button.module.css";
+// loading page
+import pageLoader from "@/components/Loading/pageLoader";
 
-export default function Home() {
-  const [toggleMode, setToggleMode] = useState(true);
-  const [lastScrollPosition, setLastScrollPosition] = useState(0);
-
-  useEffect(() => {
-    AOS.init();
-
-    function handleScroll() {
-      const currentScrollPosition = window.scrollY;
-      const buttonContact = document.getElementById(
-        "contactContainer"
-      ) as HTMLElement;
-      const buttonToggle = document.getElementById(
-        "toggleButton"
-      ) as HTMLElement;
-
-      if (buttonContact && buttonToggle) {
-        if (currentScrollPosition > lastScrollPosition) {
-          buttonContact.style.bottom = "-100px";
-          buttonToggle.style.right = "-100px";
-        } else {
-          buttonContact.style.bottom = "20px";
-          buttonToggle.style.right = "10px";
-        }
-        setLastScrollPosition(currentScrollPosition);
-      }
-    }
-
-    // Attach scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollPosition]);
-
-  const toggleButton = () => {
-    const svgHero = document.querySelectorAll("#color_mainSVG");
-    if (toggleMode === true) {
-      document.documentElement.style.setProperty("--color-background", "white");
-      document.documentElement.style.setProperty("--text-color", "black");
-      document.documentElement.style.setProperty(
-        "--toggle-color",
-        "rgb(100, 199, 255)"
-      );
-      document.documentElement.style.setProperty(
-        "--color-background-accent",
-        "#F0F0F0"
-      );
-      svgHero.forEach(function (element) {
-        element.setAttribute("fill", "#3EC9DC");
-      });
-      setToggleMode(false);
-    } else {
-      document.documentElement.style.setProperty(
-        "--color-background",
-        "rgb(24, 24, 24)"
-      );
-      document.documentElement.style.setProperty("--text-color", "white");
-      document.documentElement.style.setProperty("--toggle-color", "yellow");
-      svgHero.forEach(function (element) {
-        element.setAttribute("fill", "#6C63FF");
-      });
-      document.documentElement.style.setProperty(
-        "--color-background-accent",
-        "#121212"
-      );
-      setToggleMode(true);
-    }
-  };
-
-  const toggleContact = (route : string) => {
-    window.location.href = route;
-  };
-  
-
+const Home = () => {
   return (
     <>
-      <Head>{/* Add necessary meta tags, title, etc. */}</Head>
-      <main>
-        <button
-          id="toggleButton"
-          className={buttonStyles.toggleMode}
-          onClick={toggleButton}
-        >
-          {toggleMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+      <Head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Head>
+      <Navbar />
+      <div className={button.containerContact}>
+        <button className={`${button.contact} ${button.instagram}`}>
+          <AiFillInstagram/>
         </button>
-        <div className={buttonStyles.contactContainer} id="contactContainer">
-          <button
-            className={`${buttonStyles.contact} ${buttonStyles.contactInstagram}`}
-            onClick={() => {
-              toggleContact('https://www.instagram.com/harismlnaslm')
-            }}
-          >
-            <AiFillInstagram />
-          </button>
-          <button
-            className={`${buttonStyles.contact} ${buttonStyles.contactTwitter}`}
-          >
-            <AiOutlineTwitter />
-          </button>
-          <button
-            className={`${buttonStyles.contact} ${buttonStyles.contactGithub}`}
-          >
-            <AiFillGithub />
-          </button>
+        <button className={`${button.contact} ${button.twitter}`}>
+          <AiOutlineTwitter/>
+        </button>
+        <button className={`${button.contact} ${button.linkedin}`}>
+          <AiFillLinkedin/>
+        </button>
+        <button className={`${button.contact} ${button.github}`}>
+          <AiFillGithub/>
+        </button>
+      </div>
+      <header className={styles.hero}>
+        <div className={styles.avatarContainer}>
+          <div className={styles.layer} />
+          <div className={styles.avatarWrapper}>
+            <Image
+              src={"/image/me.jpg"}
+              alt="Haris Maulana"
+              width={1080}
+              height={1080}
+              className={styles.avatar}
+              id={"avatar"}
+            />
+          </div>
         </div>
-        <header className={styles.hero}>
-          <h1 className={styles.heroIntro}>
-            {`Hello!, I'm Haris Maulana, `}
-            <br />a proficient Front-end Engineer
-          </h1>
-        </header>
-        <section className={styles.profile}>
-          <h2 className={styles.profileTitle}>PROFILE</h2>
-          <div className={styles.profileInfoContainer}>
-            <div className={styles.svgProfileContainer}>
-              <HeroSVG />
+        <span className={styles.avatarDesc}>{`Hi I'm Haris 👋`}</span>
+        <h1 className={styles.heroIntro}>
+          “Elevating User Experiences
+          <br />
+          with Code and Creativity”
+        </h1>
+      </header>
+      <div className={styles.skillsContainer}></div>
+      <main className={styles.mainSection}>
+        <section className={styles.sectionOneContainer}>
+          <div className={styles.gridContainer}>
+            <div className={styles.card}>
+              <div className={styles.iconsCard}>
+                <Image
+                  src={"/icons/ux-design.png"}
+                  className={styles.iconsImage}
+                  width={512}
+                  height={512}
+                  alt="ui-ux"
+                />
+              </div>
+              <div className={styles.infoContainer}>
+                <h4 className={styles.titleCard}>UI/UX</h4>
+                <p>
+                  {`Enhance your project's allure with stunning design and seamless
+                  functionality, creating an unmatched user experience.`}
+                </p>
+              </div>
             </div>
-            <div>
-              <p></p>
+            <div className={styles.card}>
+              <div className={styles.iconsCard}>
+                <Image
+                  src={"/icons/ui.png"}
+                  className={styles.iconsImage}
+                  width={512}
+                  height={512}
+                  alt="web-design"
+                />
+              </div>
+              <div className={styles.infoContainer}>
+                <h4 className={styles.titleCard}>Mobile-Development</h4>
+                <p>{`Catalyzing your business project's achievements through innovative mobile development approaches.`}</p>
+              </div>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.iconsCard}>
+                <Image
+                  src={"/icons/setting.png"}
+                  className={styles.iconsImage}
+                  width={512}
+                  height={512}
+                  alt="uiux"
+                />
+              </div>
+              <div className={styles.infoContainer}>
+                <h4 className={styles.titleCard}>Software development</h4>
+                <p>{`Deliver your high-quality software products that fulfill your needs and solve your specific problems.`}</p>
+              </div>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.iconsCard}>
+                <Image
+                  src={"/icons/stocks.png"}
+                  className={styles.iconsImage}
+                  width={512}
+                  height={512}
+                  alt="uiux"
+                />
+              </div>
+              <div className={styles.infoContainer}>
+                <h4 className={styles.titleCard}>Raise your business</h4>
+                <p>
+                  Broaden horizons: Embrace digitalization to broaden your
+                  business horizons and expand your reach.
+                </p>
+              </div>
             </div>
           </div>
+        </section>
+          
+        <section className={styles.sectionTwo}>
+        <h3 className={styles.titleSectionTwo}>
+            {`Let's talk about your project`}
+          </h3>
+          <button className={button.talk}>
+           {`Let me know`} <IoOpenOutline className={button.iconsTalk}/>
+          </button>
         </section>
       </main>
     </>
   );
-}
+};
+
+export default pageLoader(Home);

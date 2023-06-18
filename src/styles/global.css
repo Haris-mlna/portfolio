@@ -1,0 +1,27 @@
+/* ================================
+Typography
+=============================== */
+
+/* Outfit */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600;700;800;900&display=swap");
+
+:root {
+  --font-outfit: "Outfit", sans-serif;
+	--primary-color: #121212;
+	--accent-color: #171717;
+}
+
+
+*, ::after, ::before {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: var(--primary-color);
+	font-family: var(--font-outfit);
+	transition: 300ms ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
