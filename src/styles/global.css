@@ -21,6 +21,7 @@ body {
 	background-color: var(--primary-color);
 	font-family: var(--font-outfit);
 	transition: 300ms ease-in-out;
+	scroll-behavior: smooth;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

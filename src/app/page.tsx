@@ -1,59 +1,70 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import styles from "../styles/home.module.css";
 import button from "../styles/button.module.css";
-import Head from "next/head";
 import Image from "next/image";
-import Navbar from "@/components/Navbar/navbar";
 
+// Components
+import Straightlines from "@/components/Navbar/line";
+import Footer from "@/components/Footer/footer";
+
+// Icons
 import {
   AiFillInstagram,
   AiOutlineTwitter,
   AiFillLinkedin,
   AiFillGithub,
 } from "react-icons/ai";
-
-import {IoOpenOutline} from 'react-icons/io5'
+import { IoOpenOutline } from "react-icons/io5";
 
 // loading page
 import pageLoader from "@/components/Loading/pageLoader";
 
 const Home = () => {
+  useEffect(() => {
+    let lastScrollTop = 0;
+
+    function handleScroll() {
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const contactContainer = document.querySelector(
+        "#contactContainer"
+      ) as HTMLElement;
+      if (currentScrollTop > lastScrollTop && contactContainer !== null) {
+        contactContainer.style.bottom = "-50px";
+      } else {
+        contactContainer.style.bottom = "20px";
+      }
+
+      lastScrollTop = currentScrollTop;
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
+  const donwloadCV = () => {
+    const CV = "/object-01.pdf";
+    const fileUrl = process.env.PUBLIC_URL + CV;
+    window.open(CV, '_blank')
+  }
+
   return (
     <>
-      <Head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
-      <Navbar />
-      <div className={button.containerContact}>
+      <Straightlines />
+      <div className={button.containerContact} id="contactContainer">
         <button className={`${button.contact} ${button.instagram}`}>
-          <AiFillInstagram/>
+          <AiFillInstagram />
         </button>
         <button className={`${button.contact} ${button.twitter}`}>
-          <AiOutlineTwitter/>
+          <AiOutlineTwitter />
         </button>
         <button className={`${button.contact} ${button.linkedin}`}>
-          <AiFillLinkedin/>
+          <AiFillLinkedin />
         </button>
         <button className={`${button.contact} ${button.github}`}>
-          <AiFillGithub/>
+          <AiFillGithub />
         </button>
       </div>
       <header className={styles.hero}>
@@ -76,6 +87,9 @@ const Home = () => {
           <br />
           with Code and Creativity”
         </h1>
+        <button className={button.downloadcv} onClick={donwloadCV}>
+        Download CV
+        </button>
       </header>
       <div className={styles.skillsContainer}></div>
       <main className={styles.mainSection}>
@@ -149,15 +163,17 @@ const Home = () => {
             </div>
           </div>
         </section>
-          
+        <Straightlines />
         <section className={styles.sectionTwo}>
-        <h3 className={styles.titleSectionTwo}>
+          <h3 className={styles.titleSectionTwo}>
             {`Let's talk about your project`}
           </h3>
           <button className={button.talk}>
-           {`Let me know`} <IoOpenOutline className={button.iconsTalk}/>
+            {`Let me know`} <IoOpenOutline className={button.iconsTalk} />
           </button>
         </section>
+        <Straightlines />
+        <Footer />
       </main>
     </>
   );

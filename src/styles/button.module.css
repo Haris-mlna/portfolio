@@ -1,8 +1,10 @@
 .containerContact {
   display: flex;
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 20px;
+  transition: 300ms ease-in-out;
+  z-index: 10;
 }
 
 .contact {
@@ -36,8 +38,22 @@
   transition: 300ms ease-in-out;
 }
 
-.talk:hover {
-  transform: scale(90%);
+.downloadcv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 45px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 1px solid #3f3f3f;
+  color: rgb(166, 166, 166);
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.talk:hover, .downloadcv:hover {
+  transform: scale(95%);
 }
 
 .iconsTalk {

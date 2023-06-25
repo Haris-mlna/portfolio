@@ -15,8 +15,7 @@
     border: 2px solid white;
     transform: rotate(45deg);
     border-radius: 4px;
-    box-shadow: 0 0 4px 2px white;
-    animation: spinning 10s linear;
+    animation: spinning 5s linear infinite;
 }
 
 @keyframes spinning {
