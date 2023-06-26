@@ -50,20 +50,40 @@ const Home = () => {
     window.open(CV, '_blank')
   }
 
+  const handleContact = ( link : string) => {
+    window.open(link , '_blank')
+  }
+
   return (
     <>
       <Straightlines />
       <div className={button.containerContact} id="contactContainer">
-        <button className={`${button.contact} ${button.instagram}`}>
+        <button className={`${button.contact} ${button.instagram}`} onClick={
+          () => {
+            handleContact('https://www.instagram.com/harismlnaslm/')
+          }
+        }>
           <AiFillInstagram />
         </button>
-        <button className={`${button.contact} ${button.twitter}`}>
+        <button className={`${button.contact} ${button.twitter}`} onClick={
+          () => {
+            handleContact('https://twitter.com/EngineerDazling')
+          }
+        }>
           <AiOutlineTwitter />
         </button>
-        <button className={`${button.contact} ${button.linkedin}`}>
+        <button className={`${button.contact} ${button.linkedin}`} onClick={
+          () => {
+            handleContact('https://www.linkedin.com/in/haris-maulana-57b06696/')
+          }
+        }>
           <AiFillLinkedin />
         </button>
-        <button className={`${button.contact} ${button.github}`}>
+        <button className={`${button.contact} ${button.github}`} onClick={
+          () => {
+            handleContact('https://github.com/Haris-mlna')
+          }
+        }>
           <AiFillGithub />
         </button>
       </div>
@@ -168,7 +188,11 @@ const Home = () => {
           <h3 className={styles.titleSectionTwo}>
             {`Let's talk about your project`}
           </h3>
-          <button className={button.talk}>
+          <button className={button.talk}
+            onClick={() => {
+              handleContact('https://wa.me/+6281386329291')
+            }}
+          >
             {`Let me know`} <IoOpenOutline className={button.iconsTalk} />
           </button>
         </section>
