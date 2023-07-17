@@ -54,6 +54,10 @@ const Home = () => {
     window.open(link , '_blank')
   }
 
+  const navigateTo = (link : string) => {
+    window.location.href = link
+   };
+
   return (
     <>
       <Straightlines />
@@ -195,6 +199,15 @@ const Home = () => {
           >
             {`Let me know`} <IoOpenOutline className={button.iconsTalk} />
           </button>
+        </section>
+        <Straightlines/>
+        <section className={styles.projectSCT}>
+            <h3>
+              {`"Explore a Multitude of Exciting Projects"`}
+            </h3>
+            <button className={button.project} onClick={() => {navigateTo('project')}}>
+              Explore
+            </button>
         </section>
         <Straightlines />
         <Footer />

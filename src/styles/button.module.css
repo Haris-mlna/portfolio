@@ -52,7 +52,24 @@
   transition: 300ms ease-in-out;
 }
 
-.talk:hover, .downloadcv:hover {
+.project {
+  margin-top: 100px;
+  width: 200px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(166, 166, 166);
+  font-weight: 300;
+  background-color: transparent;
+  border: 1px solid #3f3f3f;
+  font-family: var(--font-outfit);
+  cursor: pointer;
+
+  transition: 150ms ease-in-out;
+}
+
+.talk:hover, .downloadcv:hover, .project:hover {
   transform: scale(95%);
 }
 

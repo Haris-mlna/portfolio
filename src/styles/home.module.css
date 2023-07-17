@@ -178,6 +178,32 @@ Header Ends
   -webkit-text-fill-color: transparent;
 }
 
+/*=============================
+PROJECT SECTION
+================================*/
+
+.projectSCT {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-outfit);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectSCT h3 {
+  font-size: 64px;
+  font-weight: 300;
+  background: linear-gradient(to bottom right, rgb(201, 201, 201) 0%, rgba(116, 116, 116, 0.11) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*=============================
+PROJECT SECTION ENDS
+================================*/
+
 
 @media (max-width: 1000px) {
   .gridContainer {
