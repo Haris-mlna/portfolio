@@ -47,47 +47,53 @@ const Home = () => {
   const donwloadCV = () => {
     const CV = "/object-01.pdf";
     const fileUrl = process.env.PUBLIC_URL + CV;
-    window.open(CV, '_blank')
-  }
+    window.open(CV, "_blank");
+  };
 
-  const handleContact = ( link : string) => {
-    window.open(link , '_blank')
-  }
+  const handleContact = (link: string) => {
+    window.open(link, "_blank");
+  };
 
-  const navigateTo = (link : string) => {
-    window.location.href = link
-   };
+  const navigateTo = (link: string) => {
+    window.location.href = link;
+  };
 
   return (
     <>
       <Straightlines />
       <div className={button.containerContact} id="contactContainer">
-        <button className={`${button.contact} ${button.instagram}`} onClick={
-          () => {
-            handleContact('https://www.instagram.com/harismlnaslm/')
-          }
-        }>
+        <button
+          className={`${button.contact} ${button.instagram}`}
+          onClick={() => {
+            handleContact("https://www.instagram.com/harismlnaslm/");
+          }}
+        >
           <AiFillInstagram />
         </button>
-        <button className={`${button.contact} ${button.twitter}`} onClick={
-          () => {
-            handleContact('https://twitter.com/EngineerDazling')
-          }
-        }>
+        <button
+          className={`${button.contact} ${button.twitter}`}
+          onClick={() => {
+            handleContact("https://twitter.com/EngineerDazling");
+          }}
+        >
           <AiOutlineTwitter />
         </button>
-        <button className={`${button.contact} ${button.linkedin}`} onClick={
-          () => {
-            handleContact('https://www.linkedin.com/in/haris-maulana-57b06696/')
-          }
-        }>
+        <button
+          className={`${button.contact} ${button.linkedin}`}
+          onClick={() => {
+            handleContact(
+              "https://www.linkedin.com/in/haris-maulana-57b06696/"
+            );
+          }}
+        >
           <AiFillLinkedin />
         </button>
-        <button className={`${button.contact} ${button.github}`} onClick={
-          () => {
-            handleContact('https://github.com/Haris-mlna')
-          }
-        }>
+        <button
+          className={`${button.contact} ${button.github}`}
+          onClick={() => {
+            handleContact("https://github.com/Haris-mlna");
+          }}
+        >
           <AiFillGithub />
         </button>
       </div>
@@ -112,10 +118,25 @@ const Home = () => {
           with Code and Creativity”
         </h1>
         <button className={button.downloadcv} onClick={donwloadCV}>
-        Download CV
+          Download CV
         </button>
       </header>
-      <div className={styles.skillsContainer}></div>
+      <div className={styles.adsContainer}>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3618396639841980"
+          crossOrigin="anonymous"
+        ></script>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3618396639841980"
+          data-ad-slot="1707187230"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</script>
+      </div>
       <main className={styles.mainSection}>
         <section className={styles.sectionOneContainer}>
           <div className={styles.gridContainer}>
@@ -192,22 +213,26 @@ const Home = () => {
           <h3 className={styles.titleSectionTwo}>
             {`Let's talk about your project`}
           </h3>
-          <button className={button.talk}
+          <button
+            className={button.talk}
             onClick={() => {
-              handleContact('https://wa.me/+6281386329291')
+              handleContact("https://wa.me/+6281386329291");
             }}
           >
             {`Let me know`} <IoOpenOutline className={button.iconsTalk} />
           </button>
         </section>
-        <Straightlines/>
+        <Straightlines />
         <section className={styles.projectSCT}>
-            <h3>
-              {`"Explore a Multitude of Exciting Projects"`}
-            </h3>
-            <button className={button.project} onClick={() => {navigateTo('project')}}>
-              Explore
-            </button>
+          <h3>{`"Explore a Multitude of Exciting Projects"`}</h3>
+          <button
+            className={button.project}
+            onClick={() => {
+              navigateTo("project");
+            }}
+          >
+            Explore
+          </button>
         </section>
         <Straightlines />
         <Footer />
