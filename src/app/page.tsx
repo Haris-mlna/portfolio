@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {FC, useEffect } from "react";
 import styles from "../styles/home.module.css";
 import button from "../styles/button.module.css";
 import Image from "next/image";
@@ -21,7 +21,7 @@ import { IoOpenOutline } from "react-icons/io5";
 // loading page
 import pageLoader from "@/components/Loading/pageLoader";
 
-const Home = () => {
+const Home : FC = () => {
   useEffect(() => {
     let lastScrollTop = 0;
 
@@ -46,7 +46,6 @@ const Home = () => {
 
   const donwloadCV = () => {
     const CV = "/object-01.pdf";
-    const fileUrl = process.env.PUBLIC_URL + CV;
     window.open(CV, "_blank");
   };
 
@@ -131,8 +130,8 @@ const Home = () => {
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
-          data-ad-client="ca-pub-3618396639841980"
-          data-ad-slot="1707187230"
+          data-ad-client='ca-pub-3618396639841980'
+          data-ad-slot='1707187230'
           data-ad-format="auto"
           data-full-width-responsive="true"
         ></ins>
