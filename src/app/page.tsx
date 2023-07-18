@@ -127,6 +127,7 @@ const Home = () => {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3618396639841980"
           crossOrigin="anonymous"
         ></script>
+        <script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</script>
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
@@ -135,7 +136,6 @@ const Home = () => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         ></ins>
-        <script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</script>
       </div>
       <main className={styles.mainSection}>
         <section className={styles.sectionOneContainer}>
