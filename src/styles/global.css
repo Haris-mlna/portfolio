@@ -5,8 +5,12 @@ Typography
 /* Outfit */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600;700;800;900&display=swap");
 
+/* Dancing Script */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 :root {
   --font-outfit: "Outfit", sans-serif;
+	--font-dancingS : 'Dancing Script',sans-serif;
 	--primary-color: #121212;
 	--accent-color: #171717;
 }
@@ -25,4 +29,22 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #fff;
+	border: 2px solid #fff;
 }

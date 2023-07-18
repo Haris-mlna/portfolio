@@ -1,0 +1,22 @@
+.back {
+  width: 85px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  background-color: transparent;
+  color: rgb(221, 221, 221);
+  border-radius: 40px;
+  border: 2px solid rgb(80, 80, 80);
+  cursor: pointer;
+
+  transition: 300ms ease-in-out;
+}
+
+.back:hover {
+  transform: translateX(-3%);
+}
